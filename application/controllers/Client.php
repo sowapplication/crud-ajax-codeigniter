@@ -33,3 +33,4 @@ class client extends CI_Controller
 	}
 
 }
+?>

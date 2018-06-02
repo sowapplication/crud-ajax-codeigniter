@@ -1,7 +1,6 @@
 <!-- bootstrap datepicker -->
   <link rel="stylesheet" href="<?php echo base_url().'bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'?>">
 
-
 <div class="content-wrapper">
 	<section class="content">        
 		<!-- Page Heading -->
@@ -411,11 +410,22 @@
 		 
 		//function show all product
 		function show_product(){
+			var datatosend = {  };
+			<?php 
+			if(array_key_exists('clientIds',$this->input->post()))
+			{ ?>
+				var datatosend = { clientID: <?php  print trim($this->input->post('clientIds')); ?> };
+			<?php
+			}
+			?>
+			
+			
 		    $.ajax({
-		        type  : 'ajax',
+				type: 'POST',
 		        url   : '<?php echo site_url('sowmastercontroller/sowData')?>',
 		        async : false,
-		        dataType : 'json',
+				data	: datatosend,
+				dataType : 'json',
 		        success : function(data){
 		            var html = '';
 		            var i;

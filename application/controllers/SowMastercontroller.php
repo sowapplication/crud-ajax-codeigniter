@@ -17,6 +17,7 @@ class sowmastercontroller extends CI_Controller
 	// SOW Master methods:-
 	function sowData()
 	{
+		// echo '<pre>'; print_r($this->input->post()); echo '</pre>';
 		$data=$this->sowmaster->sowList();
 		echo json_encode($data);
 	}

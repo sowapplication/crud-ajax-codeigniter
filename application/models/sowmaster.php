@@ -4,7 +4,14 @@ class sowmaster extends CI_Model
 	// SOW Master methods:-
 	function sowList()
 	{	
+		if(array_key_exists('clientID',$this->input->post()))
+		{
+			if(trim($this->input->post('clientID')) !='')
+			$this->db->where('clientId', $this->input->post('clientID'));
+		}
+		
 		$hasil = $this->db->get('sowmaster');
+		// print $this->db->last_query();
 		return $hasil->result();
 	}
 	function sowIdList()

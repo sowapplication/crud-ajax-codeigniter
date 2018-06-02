@@ -113,7 +113,7 @@
               </div>
             </div>
             </form>
-        <!--END MODAL EDIT-->
+        <!--END MODAL  EDIT-->
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
@@ -214,22 +214,26 @@
                 }
             });
             return false;
+ 
         });
 		
 		//update record to database
         $('#show_data').on('click','.item_postid', function()
 		{
             var clientIds 	= $(this).data('clientid');
-            $.ajax({
+			
+			 $('<form action="<?php echo site_url('sowmastercontroller')?>" method="post" name=""><input type="hidden" name="clientIds" value="'+clientIds+'"></form>').appendTo('body').submit();
+           /*  $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('sowmastercontroller/sowIdData')?>",
+                url  : "<?php echo site_url('sowmastercontroller')?>",
                 dataType : "JSON",
                 data : {id:clientIds},
                 success: function(data)
 				{
+					
                 }
             });
-            return false;
+            return false; */
         });
 	});
 </script>
