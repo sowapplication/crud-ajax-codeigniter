@@ -14,11 +14,17 @@ class sowmaster extends CI_Model
 		// print $this->db->last_query();
 		return $hasil->result();
 	}
-	function sowIdList()
-	{		
-		$id                  = $this->input->post('id');
-		$this->db->where('clientId', $id);
+	function sowMoreList()
+	{
+		if(array_key_exists('id',$this->input->post()))
+		{
+			if(trim($this->input->post('id')) != '')
+			$this->db->where('Id', $this->input->post('id'));
+		}
+		
 		$hasil = $this->db->get('sowmaster');
+		// print $this->db->last_query();
+		// die;
 		return $hasil->result();
 	}
 	function sowSave()
@@ -85,6 +91,11 @@ class sowmaster extends CI_Model
 	// Cycle Master methods:-
 	function cycleList()
 	{
+		if( array_key_exists('clientName',$this->input->post()) )
+		{
+			if(trim($this->input->post('clientID')) !='')
+			$this->db->where('clientId', $this->input->post('clientID'));
+		}
 		$hasil = $this->db->get('cyclemaster');
 		return $hasil->result();
 	}

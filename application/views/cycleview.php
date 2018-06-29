@@ -185,14 +185,15 @@ $(document).ready(function(){
 		        url   : '<?php echo site_url('sowmastercontroller/cycleData')?>',
 		        async : false,
 		        dataType : 'json',
-		        success : function(data){
+		        success : function(data)
+				{
 		            var html = '';
 		            var i;
 		            for(i=0; i<data.length; i++)
 					{
 		                html += '<tr>'+
 		                  		'<td>'+data[i].id+'</td>'+
-		                        '<td>'+data[i].clientid+'</td>'+
+		                        '<td>'+data[i].clientName+'</td>'+
 		                        '<td>'+data[i].sowname+'</td>'+
 								'<td>'+data[i].cycleflag+'</td>'+
 								'<td>'+data[i].volume+'</td>'+

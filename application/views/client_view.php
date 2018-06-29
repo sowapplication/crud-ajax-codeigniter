@@ -161,8 +161,6 @@
             var legal_name 		= $('#legal_name').val();
             var status        	= $('#status').val();
 			
-			console.log("client_name...." + client_name);
-			
             $.ajax({
                 type : "POST",
                 url  : "<?php echo site_url('client/saveClient')?>",
@@ -217,23 +215,12 @@
  
         });
 		
-		//update record to database
+		//posting records to controller
         $('#show_data').on('click','.item_postid', function()
 		{
             var clientIds 	= $(this).data('clientid');
 			
 			 $('<form action="<?php echo site_url('sowmastercontroller')?>" method="post" name=""><input type="hidden" name="clientIds" value="'+clientIds+'"></form>').appendTo('body').submit();
-           /*  $.ajax({ zakir
-                type : "POST",
-                url  : "<?php echo site_url('sowmastercontroller')?>",
-                dataType : "JSON",
-                data : {id:clientIds},
-                success: function(data)
-				{
-					
-                }
-            });
-            return false; */
         });
 	});
 </script>

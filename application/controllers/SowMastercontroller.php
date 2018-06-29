@@ -22,10 +22,16 @@ class sowmastercontroller extends CI_Controller
 		echo json_encode($data);
 	}
 	
-	function sowIdData()
+	function sowMoreData()
 	{
-		$data = $this->sowmaster->sowIdList();
+		// echo '<pre>'; print_r($this->input->post()); echo '</pre>';
+		// die;
+		$this->load->view('include/header');
+	    $this->load->view('include/leftmenu');
+		$data	= $this->sowmaster->sowMoreList();
 		echo json_encode($data);
+		$this->load->view('sowMoreView');
+		$this->load->view('include/footer');
 	}
 
 	function sowSave()
@@ -48,7 +54,8 @@ class sowmastercontroller extends CI_Controller
 	
 	// Cycle Master methods:-
 	function cycleView()
-	{	$this->load->view('include/header');
+	{	
+		$this->load->view('include/header');
 	    $this->load->view('include/leftmenu');
 		$this->load->view('cycleview');
 		$this->load->view('include/footer');
